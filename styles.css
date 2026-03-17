@@ -1,0 +1,303 @@
+/* ---------------- Reset & Typography ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #2c3e50;
+}
+
+/* ---------------- Top Bar ---------------- */
+.topbar {
+    height: 60px;
+    background-color: #1f3a5f;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* ---------------- Layout ---------------- */
+.layout {
+    display: flex;         /* sidebar + content side by side */
+    flex-direction: row;   /* default, just to be explicit */
+    height: calc(100vh - 60px);
+}
+
+/* ---------------- Sidebar ---------------- */
+.sidebar {
+    flex-shrink: 0;
+    width: 240px;
+    background: #2c3e50;
+    color: white;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 16px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.sidebar li:hover {
+    background: #34495e;
+}
+
+.sidebar li.active {
+    background: #1f3a5f;
+}
+
+/* ---------------- Main Content ---------------- */
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background: white;
+}
+
+/* ---------------- Page Visibility ---------------- */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* ---------------- Dashboard ---------------- */
+.dashboard{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+/* Dashboard Header */
+.dashboard-header h1{
+    font-size:26px;
+    font-weight:600;
+    color:#2c3e50;
+}
+
+/* Stats Grid */
+.stats-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:20px;
+}
+
+/* Stat Cards */
+.stat-card{
+    background:white;
+    border-radius:8px;
+    padding:22px;
+    border:1px solid #e4e7ec;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:transform 0.15s ease;
+}
+.stat-card:hover{
+    transform:translateY(-3px);
+}
+
+.stat-card h3{
+    font-size:14px;
+    font-weight:600;
+    color:#6b7280;
+}
+
+.stat-number{
+    font-size:28px;
+    font-weight:700;
+    color:#1f3a5f;
+}
+
+.stat-label{
+    font-size:12px;
+    color:#9ca3af;
+}
+
+/* Planning Insights Panel */
+.insights-panel{
+    background:white;
+    border:1px solid #e4e7ec;
+    border-radius:8px;
+    padding:25px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+.insights-panel h2{
+    margin-bottom:15px;
+    font-size:18px;
+}
+
+.insight-placeholder{
+    background:#f4f6f9;
+    border:1px dashed #cfd6df;
+    padding:30px;
+    border-radius:6px;
+    color:#6b7280;
+    line-height:1.6;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 180px;
+    }
+    .topbar {
+        font-size: 16px;
+    }
+}
+
+/* ---------------- Map Page ---------------- */
+.map-container{
+    display:flex;
+    height: 600px; /* adjust to fit screen */
+    gap:15px;
+}
+
+/* Left Tools Panel */
+.tools-panel{
+    width: 250px;
+    background:white;
+    border:1px solid #e4e7ec;
+    border-radius:8px;
+    padding:20px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.tools-panel h2{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+/* Leaflet Map */
+.leaflet-map{
+    flex:1;
+    height:calc(100vw * 0.6);  /* 60% of viewport width */;
+    width:100%;
+    border-radius:8px;
+    border:1px solid #e4e7ec;
+}
+
+/* Controls */
+.tools-panel select, .tools-panel button{
+    padding:8px;
+    font-size:14px;
+    border-radius:4px;
+    border:1px solid #cfd6df;
+    outline:none;
+}
+
+.tools-panel button{
+    background:#1f3a5f;
+    color:white;
+    cursor:pointer;
+    transition: background 0.2s ease;
+}
+
+.tools-panel button:hover{
+    background:#34495e;
+}
+/* Planning Insights Panel */
+.insights-panel{
+    background:white;
+    border:1px solid #e4e7ec;
+    border-radius:8px;
+    padding:25px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* ---------------- AI Assistant Page ---------------- */
+.assistant-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* ---------------- AI Planning Assistant ---------------- */
+
+.assistant-container{
+    display:flex;
+    flex-direction:column;
+    height:70vh;
+    border:1px solid #e4e7ec;
+    border-radius:8px;
+    background:white;
+}
+
+/* Chat Window */
+.chat-window{
+    flex:1;
+    padding:20px;
+    overflow-y:auto;
+    background:#f7f9fb;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+/* Messages */
+.message{
+    max-width:65%;
+    padding:10px 14px;
+    border-radius:8px;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* AI message */
+.message.ai{
+    background:#e9eef5;
+    align-self:flex-start;
+}
+
+/* User message */
+.message.user{
+    background:#1f3a5f;
+    color:white;
+    align-self:flex-end;
+}
+
+/* Input area */
+.chat-input{
+    display:flex;
+    border-top:1px solid #e4e7ec;
+}
+
+.chat-input input{
+    flex:1;
+    padding:12px;
+    border:none;
+    font-size:14px;
+    outline:none;
+}
+
+.chat-input button{
+    width:100px;
+    background:#1f3a5f;
+    color:white;
+    border:none;
+    cursor:pointer;
+    transition:background 0.2s;
+}
+
+.chat-input button:hover{
+    background:#34495e;
+}

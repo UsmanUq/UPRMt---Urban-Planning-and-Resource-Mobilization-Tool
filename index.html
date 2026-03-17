@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPRMt</title>
+
+<!-- Leaflet CSS-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<link rel="stylesheet" href="styles.css">
+<script src="app.js"></script>
+</head>
+
+<body>
+
+<!-- Top Navigation -->
+<header class="topbar">
+    <div class="system-title">
+        <b>UPRMt</b> - Urban Planning and Resource Management Tool
+    </div>
+</header>
+
+<div class="layout">
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li class="nav-item active" data-page="dashboard">Dashboard</li>
+                <li class="nav-item" data-page="map">GIS Map</li>
+                <li class="nav-item" data-page="assistant">AI Planning Assistant</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <!-- Dashboard Page -->
+        <section id="dashboard" class="page active">
+
+            <div class="dashboard-header">
+                <h1>Urban Planning Dashboard</h1>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Population</h3>
+                    <p class="stat-number">1,245,000</p>
+                    <span class="stat-label">Planning Area</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Active Development Zones</h3>
+                    <p class="stat-number">32</p>
+                    <span class="stat-label">Approved Zones</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Infrastructure Coverage</h3>
+                    <p class="stat-number">78%</p>
+                    <span class="stat-label">Utilities Access</span>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Service Density Score</h3>
+                    <p class="stat-number">6.4</p>
+                    <span class="stat-label">Facilities per km²</span>
+                </div>
+            </div>
+
+            <!-- Planning Insights -->
+            <div class="insights-panel">
+                <h2>Planning Insights</h2>
+                <div class="insight-placeholder">
+                    <p>
+                        Planning insights and analytics will appear here.  
+                        This section can display AI-generated planning recommendations,
+                        infrastructure analysis, and development trends based on
+                        planning data and GIS models.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Planning Map Page -->
+        <section id="map" class="page">
+
+            <!-- Map -->
+         <p>Visualisation via OpenStreetMap </p>
+         <p>Note: Map may take a moment to load due to external data calls.</p>
+
+            <!-- Left Tools Panel -->
+        <div class="tools-panel">
+            <h2>Planning Tools</h2>
+
+            <label for="layer-select">Select Layer:</label>
+            <select id="layer-select">
+                <option value="population">Population Density</option>
+                <option value="infrastructure">Infrastructure Locations</option>
+                <option value="services">Public Services</option>
+            </select>
+
+            <label for="zone-select">Select Zone:</label>
+            <select id="zone-select">
+                <option value="zone1">Zone 1</option>
+                <option value="zone2">Zone 2</option>
+                <option value="zone3">Zone 3</option>
+            </select>
+
+            <button id="analyze-btn">Analyze Area</button>
+        </div>
+
+            <div id="mapid" class="leaflet-map"></div>
+
+        
+        </section>
+
+       <!-- AI Planning Assistant Page -->
+<section id="assistant" class="page">
+    <h1>AI Planning Assistant</h1>
+
+    <div class="assistant-container">
+
+        <!-- Chat Window -->
+        <div id="chat-window" class="chat-window"></div>
+
+        <!-- Input Area -->
+        <div class="chat-input">
+            <input 
+                type="text" 
+                id="assistant-input" 
+                placeholder="Ask about zoning, infrastructure, or planning policy..."
+            >
+            <button id="assistant-send">Send</button>
+        </div>
+
+    </div>
+</section>
+
+
+</main>
+</body>
+</html>
