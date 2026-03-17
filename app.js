@@ -162,59 +162,49 @@ karachiEastPolygon.addTo(map);
 });
 
 // AI Planning Assistant
-const sendBtn = document.getElementById("assistant-send");
-const inputField = document.getElementById("assistant-input");
-const chatWindow = document.getElementById("chat-window");
+document.addEventListener('DOMContentLoaded', function() {
+    const sendBtn = document.getElementById("llm-send");
+    const inputField = document.getElementById("llm-input");
+    const chatWindow = document.getElementById("chat-window");
 
-function addMessage(text, sender){
-
-    const message = document.createElement("div");
-    message.classList.add("message", sender);
-
-    message.textContent = text;
-
-    chatWindow.appendChild(message);
-
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-}
-
-async function sendQuery(){
-
-    const query = inputField.value.trim();
-
-    if(!query) return;
-
-    addMessage(query, "user");
-
-    inputField.value = "";
-
-    try{
-
-        const response = await fetch("http://localhost:3000/api/planning-assistant", {
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({
-                query: query
-            })
-        });
-
-        const data = await response.json();
-
-        addMessage(data.response || "No response from assistant.", "ai");
-
-    }catch(error){
-
-        addMessage("Unable to reach planning assistant API.", "ai");
-
+    function addMessage(text, sender){
+        const message = document.createElement("div");
+        message.classList.add("message", sender);
+        message.textContent = text;
+        chatWindow.appendChild(message);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
     }
-}
 
-sendBtn.addEventListener("click", sendQuery);
+    async function sendQuery(){
+        const query = inputField.value.trim();
+        if(!query) return;
+        
+        addMessage(query, "user");
+        inputField.value = "";
 
-inputField.addEventListener("keypress", function(e){
-    if(e.key === "Enter"){
-        sendQuery();
+        try{
+            const response = await fetch("http://localhost:3000/api/planning-assistant", {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({
+                    query: query
+                })
+            });
+
+            const data = await response.json();
+            addMessage(data.response || "No response from assistant.", "ai");
+        }catch(error){
+            addMessage("Unable to reach planning llmAPI.", "ai");
+        }
     }
+
+    sendBtn.addEventListener("click", sendQuery);
+
+    inputField.addEventListener("keypress", function(e){
+        if(e.key === "Enter"){
+            sendQuery();
+        }
+    });
 });

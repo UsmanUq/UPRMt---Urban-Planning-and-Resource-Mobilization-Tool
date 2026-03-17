@@ -225,7 +225,7 @@ body {
 }
 
 /* ---------------- AI Assistant Page ---------------- */
-.assistant-container{
+.llm-container{
     display:flex;
     flex-direction:column;
     gap:20px;
@@ -233,7 +233,7 @@ body {
 
 /* ---------------- AI Planning Assistant ---------------- */
 
-.assistant-container{
+.llm-container{
     display:flex;
     flex-direction:column;
     height:70vh;

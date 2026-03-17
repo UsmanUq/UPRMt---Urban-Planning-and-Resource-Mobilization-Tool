@@ -31,7 +31,7 @@
             <ul>
                 <li class="nav-item active" data-page="dashboard">Dashboard</li>
                 <li class="nav-item" data-page="map">GIS Map</li>
-                <li class="nav-item" data-page="assistant">AI Planning Assistant</li>
+                <li class="nav-item" data-page="llm">AI Planning Assistant</li>
             </ul>
         </nav>
     </aside>
@@ -117,15 +117,13 @@
         </div>
 
             <div id="mapid" class="leaflet-map"></div>
-
-        
         </section>
 
-       <!-- AI Planning Assistant Page -->
-<section id="assistant" class="page">
+       <!-- AI Planning LLM Page -->
+<section id="llm" class="page">
     <h1>AI Planning Assistant</h1>
 
-    <div class="assistant-container">
+    <div class="llm-container">
 
         <!-- Chat Window -->
         <div id="chat-window" class="chat-window"></div>
@@ -134,10 +132,10 @@
         <div class="chat-input">
             <input 
                 type="text" 
-                id="assistant-input" 
+                id="llm-input" 
                 placeholder="Ask about zoning, infrastructure, or planning policy..."
             >
-            <button id="assistant-send">Send</button>
+            <button id="llm-send">Send</button>
         </div>
 
     </div>
