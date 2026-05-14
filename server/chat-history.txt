@@ -1,0 +1,35 @@
+
+
+User: how about you
+AI: Planning assistant received: how about you
+
+User: hmm
+AI: Planning assistant received: hmm
+
+User: hello world
+AI: Planning assistant received: hello world
+
+User: kya karba hai
+AI: Planning assistant received: kya karba hai
+
+User: helo
+AI: Planning assistant received: helo
+
+User: hello
+AI: Planning assistant received: hello
+
+User: hello
+AI: Planning assistant received: hello
+
+User: hello
+AI: Planning assistant received: hello
+
+User: huh
+AI: User: huh
+
+User: tell me about the canges in zoning regulations in karachi east
+AI: User: tell me about the canges in zoning regulations in karachi east
+
+User: tell me about hospitals
+AI: User: tell me about hospitals
+
